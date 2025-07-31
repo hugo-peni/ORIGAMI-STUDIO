@@ -1,0 +1,17 @@
+# sys gmsh part.step -clcurv -3 -o gmsh.inp -order 2
+sys gmsh Living_hinge_1_shell.geo
+read gmsh.inp
+ulin gmsh without virtual topology
+
+# remove surface elements
+zap +CPS6
+
+# send mesh, support set and load definition
+send all abq
+send support abq nam
+comp load do
+send load abq pres 1
+
+# document sets
+plot f load
+plus n support

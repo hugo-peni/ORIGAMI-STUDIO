@@ -1,0 +1,26 @@
+*include,input=all.msh
+*include,input=upper.nam
+*include,input=lower.nam
+
+*boundary
+Nlower,1,3
+Nupper,1,3 
+
+** material definition
+*material, name=steel
+*elastic
+210000,0.3,0
+
+*solid section, elset=Eall, material=steel
+
+*STEP
+*STATIC
+
+*boundary
+*include, input=disp.inc
+
+*el file
+S
+*node file
+U
+*end step

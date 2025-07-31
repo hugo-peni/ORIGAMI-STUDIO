@@ -1,0 +1,25 @@
+// Load the STEP geometry
+Merge "origami_shell.step";
+
+// Set mesh parameters
+Mesh.ElementOrder = 2;           // Use quadratic elements
+Mesh.Optimize = 1;               // Improve element quality
+Mesh.HighOrderOptimize = 2;      // Further optimization for higher order elements
+Mesh.CharacteristicLengthMax = 20;
+
+// Set meshing options for surfaces only (not volumes)
+Mesh.SurfaceFaces = 1;           // Enable surface meshing
+Mesh.SurfaceEdges = 1;           // Optional: capture surface edges
+Mesh.VolumeFaces = 0;            // Disable volume meshing
+Mesh.VolumeEdges = 0;
+
+// Generate the 2D surface mesh
+Mesh 2;
+
+// Save mesh groups and export to CalculiX format
+Mesh.SaveGroupsOfNodes = 1;
+Save "gmsh.inp";
+
+// Optional: set viewer options
+General.Trackball = 0;
+General.RotationX = -50;

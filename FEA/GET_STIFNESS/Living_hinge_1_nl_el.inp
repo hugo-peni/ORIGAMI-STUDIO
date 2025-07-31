@@ -1,0 +1,33 @@
+*include,input=all.msh
+*include,input=upper.nam
+*include,input=lower.nam
+
+** --- Boundary Conditions ---
+*boundary
+Nlower,1,3
+Nupper,1,3 
+
+** --- Material Definition for TPU (Hyperelastic Mooney-Rivlin) ---
+*material, name=TPU
+*hyperelastic, n=2, type=mooney
+0.6, 0.15, 0.01
+
+** --- Solid Section Assignment ---
+*solid section, elset=Eall, material=TPU
+
+** --- Static Step with Nonlinear Geometry ---
+*STEP, nlgeom=YES
+*STATIC
+
+** --- Prescribed Displacements ---
+*boundary
+*include, input=disp.inc
+
+** --- Output Fields ---
+*el file
+S
+
+*node file
+U
+
+*end step
