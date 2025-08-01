@@ -9,7 +9,7 @@ Mesh.SurfaceEdges = 0;
 Mesh.VolumeFaces = 1;
 Mesh.VolumeEdges = 1;
 Mesh.HighOrderOptimize = 2;
-Mesh.CharacteristicLengthMax = 2;
+Mesh.CharacteristicLengthMax = 1000;
 Mesh.VolumeFaces = 0;
 Mesh 3;
 

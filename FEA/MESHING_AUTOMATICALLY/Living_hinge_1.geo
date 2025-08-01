@@ -1,5 +1,5 @@
 
-Merge "Living_hinge_1.step";
+Merge "Living_hinge_3.step";
 
 Mesh.ElementOrder=2;
 Mesh.Optimize=1;
